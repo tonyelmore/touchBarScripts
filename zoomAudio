@@ -1,0 +1,37 @@
+-- This is a script that can be put into BetterTouchTool to toggle the 
+-- Mute / Unmute Audio whie in Zoom.
+-- The only program that seems to not play well with this is VisualStudio Code
+-- To use this script...
+--   1) In BetterTouchTool select "TouchBar" along tab bar
+--   2) Select "+ Widget/Gesture"
+-    3) Select "Run Apple Script and Show results" from the drop down
+--   4) Select "Send Shortcut to Specific App" from the Predefined Action drop down
+--      4a) Select Shift-Cmd-A as the shortcut
+--      4b) Select zoom.us as the application
+--   5) Under "Advanced Configuration" paste in this script
+--   6) You can optionally add an icon
+--      6a) On the "Appearance & Setting" tab
+--      6b) Drag and drop the icon from zoom.us into the "icon" box
+--          6bi) To get the icon, right click on the zoom.us file in Applications, select "Show Package Contents"... the icon file is "Contents/Resources/ZPLogo.icns"
+
+----------------- Start Script -----------------
+
+if application "zoom.us" is running then
+	tell application "System Events"
+		tell process "zoom.us"
+			try
+				set audioStatus to name of menu item "Mute Audio" of menu 1 of menu bar item "Meeting" of menu bar 1
+				return audioStatus
+			end try
+			
+			try
+				set audioStatus to name of menu item "Unmute Audio" of menu 1 of menu bar item "Meeting" of menu bar 1
+				return audioStatus
+			end try
+			return ""
+		end tell
+	end tell
+else
+	return ""
+end if
+
