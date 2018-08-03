@@ -1,5 +1,6 @@
 # touchBarScripts
-This is a script that can be put into BetterTouchTool to toggle the Mute / Unmute Audio while in Zoom.
+This is a script that can be put into [BetterTouchTool] (https://folivora.ai/ BetterTouchTool) to toggle the Mute / Unmute Audio while in Zoom.
+You will have to spend the $6.50 or $20.00 for BetterTouchTool
 The only program that seems to not play well with this is VisualStudio Code
 
 To use this script...
